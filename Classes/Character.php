@@ -1,6 +1,7 @@
 <?php
 require_once 'Attributes.php';
 require_once 'Skill.php';
+require_once 'SkillCheck.php';
 require_once 'Saveable.php';
 /* 
  * To change this template, choose Tools | Templates
@@ -11,6 +12,7 @@ class Character {
     protected $_attributes;
     protected $_name;
     protected $_id;
+    protected $_lastSkillCheck;
 
     public function  __construct($name, Attributes $attributes, Array $skills=array()) {
         $this->_skills = $skills;
@@ -41,5 +43,14 @@ class Character {
                     return $skill;
         }
     }
+    public function makeSkillCheck(Skill $skill, $pool, $minimum) {
+        $this->_lastSkillCheck = new SkillCheck($this, $skill, $pool, $minimum);
+        $this->_lastSkillCheck->execute();
+        return $this;
+    }
+    public function getLatestSkillCheck() {
+        return $this->_lastSkillCheck;
+    }
+
 }
 ?>

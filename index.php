@@ -15,7 +15,6 @@ $skill = new Skill(Attribute::INTELLIGENCE, 'Computer');
 $skillList = new SkillList();
 $charList = new CharacterList();
 $character = $charList->getCharacterById('be3efa9d33a16f5e6cae53fc1a34b78f');
-var_dump($character);
 //
 $pc = ($skillList->getSkillByName('Computer'));
 //$pcValue = new SkillValue($pc, 7);
@@ -23,9 +22,12 @@ $pc = ($skillList->getSkillByName('Computer'));
 //
 //$charList->addCharacter($character);
 
-$skillId = $pc->getSkillFingerprint();
-$skillCheck = new SkillCheck($character, $skillId, 3, 12);
-var_dump($skillCheck->execute());
+//$skillId = $pc->getSkillFingerprint();
+//$skillCheck = $character->makeSkillCheck($pc,3,10)->getLatestSkillCheck();
+$skillCheck = $character->getLatestSkillCheck();
+//$skillCheck->reroll();
+var_dump($skillCheck->getResults());
+var_dump($skillCheck->getSuccess());
 
 
 
