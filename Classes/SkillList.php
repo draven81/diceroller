@@ -1,10 +1,4 @@
 <?php
-require_once 'Saveable.php';
-require_once 'Skill.php';
-/* 
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 class SkillList extends Saveable {
     protected  $_skills = array();
 

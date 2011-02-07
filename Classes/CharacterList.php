@@ -1,9 +1,4 @@
 <?php
-require_once 'Character.php';
-/* 
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 class CharacterList extends Saveable {
     protected $_characters = array();
 

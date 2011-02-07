@@ -1,9 +1,4 @@
 <?php
-require_once 'Attribute.php';
-/* 
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 class Attributes {
     public $constitution;
     public $quickness;

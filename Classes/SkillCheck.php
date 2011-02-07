@@ -1,9 +1,4 @@
 <?php
-require_once 'Check.php';
-/* 
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 class SkillCheck {
     protected $_character;
     protected $_skillFingerPrint;

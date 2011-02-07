@@ -1,5 +1,5 @@
 <?php
-require_once 'Classes/SkillList.php';
+require_once '../autoload.inc.php';
 $skillList = new SkillList();
 
 $parentAttribute = (int)$argv[1];

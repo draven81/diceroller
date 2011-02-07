@@ -1,8 +1,4 @@
 <?php
-/* 
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 class Skill {
     protected $_parentAttribute;
     protected $_skillName;

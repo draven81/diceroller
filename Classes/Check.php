@@ -1,9 +1,4 @@
 <?php
-/* 
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-require_once 'SixSider.php';
 class Check {
     protected $_dices = array();
     protected $_diceCount;

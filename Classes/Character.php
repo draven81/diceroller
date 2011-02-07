@@ -1,12 +1,4 @@
 <?php
-require_once 'Attributes.php';
-require_once 'Skill.php';
-require_once 'SkillCheck.php';
-require_once 'Saveable.php';
-/* 
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 class Character {
     protected $_skills;
     protected $_attributes;

@@ -1,6 +1,4 @@
 <?php
-require_once 'Dice.php';
-
 class SixSider extends Dice {
     protected $_sides = 6;
   
