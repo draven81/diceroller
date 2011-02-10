@@ -14,7 +14,6 @@ abstract class Saveable {
     public function save() {
         $saveData = $this->_getSaveData();
         $className = get_class($this);
-        echo "Saving ".$className." to Backend.\n";
         $saveableItem = serialize($saveData);
         if($fp = fopen($className.'.save', 'w')) {
             if(fwrite($fp,$saveableItem) === FALSE )
@@ -23,7 +22,6 @@ abstract class Saveable {
     }
     public function restore() {
         $className = get_called_class();
-        echo "Loading ".$className." from Backend.\n";
         if(!file_exists($className.'.save')) throw new Exception ('no file');
         $item = implode("", @file($className.'.save'));
         $this->_setSaveData(unserialize($item));

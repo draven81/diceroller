@@ -10,6 +10,11 @@ class SkillValue {
     public function getValue() {
         return $this->_value;
     }
+
+    /**
+     *
+     * @return Skill
+     */
     public function getSkill() {
         return $this->_skill;
     }

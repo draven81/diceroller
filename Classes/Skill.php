@@ -8,6 +8,9 @@ class Skill {
     public function getSkillFingerprint() {
         return $this->_skillId;
     }
+    public function getId() {
+        return $this->_skillId;
+    }
     public function getName() {
         return $this->_skillName;
     }

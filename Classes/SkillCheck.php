@@ -15,17 +15,38 @@ class SkillCheck {
         $this->_minimum = $minimum;
         $this->_getCharactersSkillValue();
     }
-    private function _getCharactersSkillValue() {
-        $skill = $this->_character->getSkillById($this->_skill->getSkillFingerprint());
-        return $skill->getValue();
+    /**
+     * get SkillChecks character
+     * @return Character
+     */
+    public function getCharacter() {
+        return $this->_character;
     }
+    /**
+     * returns the Value of the given Skill of Checks character
+     * @return int
+     */
+    private function _getCharactersSkillValue() {
+        return $this->getCharacter()->getSkillValueOf($this->_skill)->getValue();
+    }
+
+    /**
+     * return instance of check
+     * @return Check
+     */
     public function getCheck() {
-        if(isset($this->_check))
-            return $this->_check;
-        else
-            throw new Exception('create check first');
+        if(!isset($this->_check))
+                if(!isset($this->_check)) $this->_initCheck ();
+
+        return $this->_check;
+    }
+
+    protected function _initCheck() {
+
     }
     public function execute() {
+        if(!isset($this->_check)) $this->_initCheck ();
+
         $this->check = new Check($this->_getCharactersSkillValue(), $this->_poolDiceCount, $this->_minimum);
         $this->check->execute();
         return $this->check->getResults();
