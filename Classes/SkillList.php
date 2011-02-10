@@ -9,11 +9,22 @@ class SkillList extends Saveable {
         $this->_skills = $savedata;
     }
 
+    /**
+     *
+     * @param Skill $skill
+     * @return SkillList 
+     */
     public function addSkill(Skill $skill) {
         if(!$this->exists($skill))
             array_push ($this->_skills, $skill);
         return $this;
     }
+
+    /**
+     *
+     * @param Skill $skill
+     * @return boolean
+     */
     public function exists(Skill $skill) {
         foreach($this->_skills as $checkSkill) {
             if($checkSkill->getSkillFingerprint() == $skill->getSkillFingerprint())
@@ -21,20 +32,60 @@ class SkillList extends Saveable {
         }
         return false;
     }
+
+    /**
+     *
+     * @param int $skillId
+     * @return Skill
+     */
     public function getSkillById($skillId) {
         foreach($this->_skills as $skill) {
-            if($skill->getSkillFingerprint()===$skillId)
+            if($skill->getId()===$skillId)
                     return $skill;
         }
-        return null;
+        throw new Exception("no skill found with id ".$skillId);
     }
+    /**
+     *
+     * @param int $skillId
+     * @return boolean
+     */
+    public function hasSkillById($skillId) {
+         foreach($this->_skills as $skill) {
+            if($skill->getId()===$skillId)
+                    return true;
+        }
+        return false;
+    }
+    /**
+     *
+     * @param string $skillName
+     * @return boolean
+     */
+    public function hasSkillByName($skillName) {
+        foreach($this->_skills as $skill) {
+           if(strtolower($skill->getName())===strtolower($skillName))
+                    return true;
+        }
+        return false;
+    }
+    /**
+     *
+     * @param string $skillName
+     * @return Skill
+     */
     public function getSkillByName($skillName) {
         foreach($this->_skills as $skill) {
-            if($skill->getName()===$skillName)
+            if(strtolower($skill->getName())===strtolower($skillName))
                     return $skill;
         }
-        return null;
+        throw new Exception("no skill found with name ".$skillName);
     }
+
+    /**
+     *
+     * @return array
+     */
     public function getAllSkills() {
         return $this->_skills;
     }
