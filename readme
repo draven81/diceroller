@@ -1,0 +1,6 @@
+***************************************************
+Need to install
+* phpab
+* doctrine2-orm
+
+rebuild autoload.inc.php and doctrine.inc.php by phpab and include in used files.
