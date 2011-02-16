@@ -1,6 +1,5 @@
 <?php
-require_once 'autoload.inc.php';
-require_once 'doctrine.inc.php';
+require_once 'bootstrap.php';
 
 $skillList = new SkillList();
 
